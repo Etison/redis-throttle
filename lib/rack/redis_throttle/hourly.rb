@@ -7,7 +7,7 @@ module Rack
         @max_per_hour ||= options[:max_per_hour] || options[:max] || 3600
       end
 
-      alias_method :max_per_window, :max_per_day
+      alias_method :max_per_window, :max_per_hour
 
       protected
 
