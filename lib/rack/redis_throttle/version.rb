@@ -2,7 +2,7 @@ module Rack
   module RedisThrottle
     module VERSION
       MAJOR = 0
-      MINOR = 1
+      MINOR = 5
       TINY  = 0
       EXTRA = nil
 
