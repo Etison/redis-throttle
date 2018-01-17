@@ -12,6 +12,7 @@ module Rack
     autoload :Connection, 'rack/redis_throttle/connection'
     autoload :Limiter,    'rack/redis_throttle/limiter'
     autoload :TimeWindow, 'rack/redis_throttle/time_window'
+    autoload :Secondly,   'rack/redis_throttle/secondly'
     autoload :Daily,      'rack/redis_throttle/daily'
     autoload :Hourly,     'rack/redis_throttle/hourly'
     autoload :Interval,   'rack/redis_throttle/interval'

@@ -3,6 +3,10 @@ require 'rack'
 module Rack
   module RedisThrottle
     class Hourly < TimeWindow
+      def interval_name
+        self.class.name
+      end
+
       def max_per_hour(request = nil)
         @max_per_hour ||= options[:max_per_hour] || options[:max] || 3600
       end

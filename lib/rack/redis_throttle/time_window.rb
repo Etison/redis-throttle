@@ -1,6 +1,10 @@
 module Rack
   module RedisThrottle
     class TimeWindow < Limiter
+      
+      def interval_name
+        self.class.name
+      end
 
       # Check my rate limit
       def allowed?(request)
@@ -16,8 +20,8 @@ module Rack
       end
 
       def rate_limit_headers(request, headers)
-        headers['X-RateLimit-Limit']     = max_per_window(request).to_s
-        headers['X-RateLimit-Remaining'] = ([0, max_per_window(request) - (cache_get(cache_key(request)).to_i rescue 1)].max).to_s
+        headers["X-#{interval_name}-RateLimit-Limit"]     = max_per_window(request).to_s
+        headers["X-#{interval_name}-RateLimit-Remaining"] = ([0, max_per_window(request) - (cache_get(cache_key(request)).to_i rescue 1)].max).to_s
         headers
       end
     end
