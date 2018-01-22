@@ -14,7 +14,7 @@ module Rack
       private
 
       def self.redis_provider
-        RedisRails.config.try(:rate_limit).try(:to_s) || ENV['REDIS_RATE_LIMIT_URL']
+        ENV['REDIS_RATE_LIMIT_URL']
       end
     end
   end
